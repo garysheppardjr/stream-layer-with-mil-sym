@@ -1,5 +1,6 @@
-package com.esri.arcgis.samples.javafx;
+package com.esri.arcgis.militarymessaging;
 
+import com.esri.arcgis.militarymessaging.StreamLayerDockableWindow;
 import com.esri.arcgis.addins.desktop.Button;
 import com.esri.arcgis.framework.IApplication;
 import com.esri.arcgis.framework.IDockableWindow;
@@ -11,7 +12,7 @@ import com.esri.arcgis.system.UID;
  * The class for a JavaFX Dockable Window Button, which can toggle the Dockable
  * Window on and off.
  */
-public class JavaFXShowDockableWindowButton extends Button {
+public class StreamLayerShowWindowButton extends Button {
 
     private IDockableWindow win;
     private IApplication application;
@@ -35,7 +36,7 @@ public class JavaFXShowDockableWindowButton extends Button {
                 UID uid = new UID();
 
                 // id attribute specified in the <DockableWindow> tag
-                uid.setValue(JavaFXDockableWindow.ID);
+                uid.setValue(StreamLayerDockableWindow.ID);
 
                 IDockableWindowManager dwm
                         = new IDockableWindowManagerProxy(application);

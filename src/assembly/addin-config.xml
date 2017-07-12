@@ -16,29 +16,29 @@
     <Target name="Desktop" version="${arcgis.version}"/>
   </Targets>
 
-  <AddIn language="JAVA" library="${project.build.finalName}.jar">
+  <AddIn language="Java" library="${project.build.finalName}.jar">
     <ArcMap>
       <Commands>
-        <Button caption="Show JavaFX Dockable Window"
-                category="ArcGIS JavaFX Examples"
-                class="com.esri.arcgis.samples.javafx.JavaFXShowDockableWindowButton"
-                id="jfxShowDockableWindowButton"
+        <Button caption="Stream Layer"
+                category="Stream Layer"
+                class="com.esri.arcgis.militarymessaging.StreamLayerShowWindowButton"
+                id="streamLayerShowWindowButton"
                 image=""
-                message="Shows the JavaFX Dockable Window"
-                tip="Show JavaFX Dockable Window">
-          <Help heading="Show JavaFX Dockable Window Button">Shows the JavaFX Dockable Window</Help>
+                message="Shows the stream layer window"
+                tip="Show Stream Layer Window">
+          <Help heading="Show Stream Layer Window Button">Shows the stream layer window</Help>
         </Button>
       </Commands>
       <DockableWindows>
-        <DockableWindow caption="Sample JavaFX Dockable Window"
-                        category="ArcGIS JavaFX Samples"
-                        class="com.esri.arcgis.samples.javafx.JavaFXDockableWindow"
-                        id="com.esri.arcgis.samples.javafx.jfxdockablewindow"/>
+        <DockableWindow caption="Stream Layer"
+                        category="Stream Layer"
+                        class="com.esri.arcgis.militarymessaging.StreamLayerDockableWindow"
+                        id="com.esri.arcgis.militarymessaging.StreamLayerDockableWindow"/>
       </DockableWindows>
       <Toolbars>
-        <Toolbar caption="JavaFX Examples Toolbar" id="jfxSamplesToolbar">
+        <Toolbar caption="Stream Layer Toolbar" id="streamLayerToolbar">
           <Items>
-            <Button refID="jfxShowDockableWindowButton"/>
+            <Button refID="streamLayerShowWindowButton"/>
           </Items>
         </Toolbar>
       </Toolbars>

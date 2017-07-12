@@ -1,4 +1,4 @@
-package com.esri.arcgis.samples.javafx;
+package com.esri.arcgis.militarymessaging;
 
 import com.esri.arcgis.addins.desktop.DockableWindow;
 import javafx.application.Platform;
@@ -12,11 +12,11 @@ import java.awt.*;
 /**
  * The class for a simple JavaFX Dockable Window.
  */
-public class JavaFXDockableWindow extends DockableWindow {
+public class StreamLayerDockableWindow extends DockableWindow {
 
-    public static final String ID = "com.esri.arcgis.samples.javafx.jfxdockablewindow";
+    public static final String ID = "com.esri.arcgis.militarymessaging.StreamLayerDockableWindow";
 
-    public JavaFXDockableWindow() {
+    public StreamLayerDockableWindow() {
 
     }
 
