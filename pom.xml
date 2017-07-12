@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.esri.arcgis.militarymessaging</groupId>
+    <artifactId>stream-layer-with-mil-sym</artifactId>
+    <version>1.0.0</version>
+
+    <name>Stream Layer with Military Symbology</name>
+    <description>An add-in that adds a stream layer to the map, optionally using military symbology.</description>
+
+    <organization>
+        <name>Esri</name>
+    </organization>
+
+    <properties>
+        <jdkVersion>1.8</jdkVersion>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <arcgis.version>10.5</arcgis.version>
+
+        <!-- TODO: update this GUID if building a new Add-In based on this project -->
+        <arcgis.addin.uuid>{4c012f63-5238-44ef-a19f-8d3042cd84ac}</arcgis.addin.uuid>
+
+        <arcgis.addin.name>${project.name}</arcgis.addin.name>
+        <arcgis.addin.description>${project.description}</arcgis.addin.description>
+        <arcgis.addin.version>${project.version}</arcgis.addin.version>
+        <arcgis.addin.company>${project.organization.name}</arcgis.addin.company>
+        <arcgis.addin.author>${project.organization.name}</arcgis.addin.author>
+
+        <maven.build.timestamp.format>MM/dd/yyyy</maven.build.timestamp.format>
+        <arcgis.addin.timestamp>${maven.build.timestamp}</arcgis.addin.timestamp>
+
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.esri</groupId>
+            <artifactId>arcobjects</artifactId>
+            <version>${arcgis.version}</version>
+            <scope>system</scope>
+            <systemPath>${env.AGSDESKTOPJAVA}/java/lib/arcobjects.jar</systemPath>
+        </dependency>
+        <dependency>
+            <groupId>org.java-websocket</groupId>
+            <artifactId>Java-WebSocket</artifactId>
+            <version>1.3.4</version>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <version>2.6</version>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>single</goal>
+                        </goals>
+                        <configuration>
+                            <finalName>${project.build.finalName}</finalName>
+                            <appendAssemblyId>false</appendAssemblyId>
+                            <descriptors>
+                                <descriptor>src/assembly/addin-assembly.xml</descriptor>
+                            </descriptors>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <plugin>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.6.0</version>
+                <configuration>
+                    <source>${jdkVersion}</source>
+                    <target>${jdkVersion}</target>
+                    <encoding>${project.build.sourceEncoding}</encoding>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>com.coderplus.maven.plugins</groupId>
+                <artifactId>copy-rename-maven-plugin</artifactId>
+                <version>1.0.1</version>
+                <executions>
+                    <execution>
+                        <id>rename-file</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>rename</goal>
+                        </goals>
+                        <configuration>
+                            <sourceFile>${project.build.directory}/${project.build.finalName}.zip</sourceFile>
+                            <destinationFile>${project.build.directory}/${project.build.finalName}.esriaddin</destinationFile>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>2.19.1</version>
+                <configuration>
+                    <workingDirectory>target</workingDirectory>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>
