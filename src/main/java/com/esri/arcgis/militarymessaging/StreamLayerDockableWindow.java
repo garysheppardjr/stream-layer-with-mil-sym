@@ -4,10 +4,13 @@ import com.esri.arcgis.addins.desktop.DockableWindow;
 import java.awt.Component;
 import javafx.application.Platform;
 import javafx.embed.swing.JFXPanel;
+import javafx.embed.swing.SwingNode;
+import javafx.event.ActionEvent;
 import javafx.scene.Scene;
-import javafx.scene.control.TextField;
+import javafx.scene.control.Button;
 import javafx.scene.text.Text;
 import javafx.scene.layout.VBox;
+import javax.swing.JTextField;
 
 /**
  * The class for a simple JavaFX Dockable Window.
@@ -16,7 +19,8 @@ public class StreamLayerDockableWindow extends DockableWindow {
 
     public static final String ID = "com.esri.arcgis.militarymessaging.StreamLayerDockableWindow";
 
-    private TextField textField_uri = null;
+    private JTextField textField_uri = null;
+    private Button button_addStreamLayer = null;
 
     @Override
     public Component createUI() {
@@ -50,11 +54,19 @@ public class StreamLayerDockableWindow extends DockableWindow {
         Scene scene = new Scene(root, javafx.scene.paint.Color.ALICEBLUE);
 
         root.getChildren().add(new Text("Stream service URI"));
-        textField_uri = new TextField();
-        textField_uri.setPromptText("e.g. wss://host.domain.com:6143/arcgis/ws/services/MyStreamService/StreamServer");
-        root.getChildren().add(textField_uri);
+        textField_uri = new JTextField();
+        SwingNode swingNode = new SwingNode();
+        swingNode.setContent(textField_uri);
+        root.getChildren().add(swingNode);
+        button_addStreamLayer = new Button("Add Stream Layer");
+        button_addStreamLayer.setOnAction(this::button_addStreamLayer_onAction);
+        root.getChildren().add(button_addStreamLayer);
 
         return (scene);
+    }
+
+    private void button_addStreamLayer_onAction(ActionEvent evt) {
+        System.out.println("TODO add layer for " + textField_uri.getText());
     }
 
 }
