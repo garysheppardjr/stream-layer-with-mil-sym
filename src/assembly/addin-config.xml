@@ -21,7 +21,7 @@
       <Commands>
         <Button caption="Show JavaFX Dockable Window"
                 category="ArcGIS JavaFX Examples"
-                class="com.esri.arcgis.samples.javafx.JavaFXShowDockableWindowButton"
+                class="com.esri.arcgis.militarymessaging.StreamLayerShowWindowButton"
                 id="jfxShowDockableWindowButton"
                 image=""
                 message="Shows the JavaFX Dockable Window"
