@@ -36,7 +36,9 @@
                                 id="com.esri.arcgis.militarymessaging.StreamLayerDockableWindow"/>
             </DockableWindows>
             <Toolbars>
-                <Toolbar caption="Stream Layer Toolbar" id="streamLayerToolbar">
+                <Toolbar caption="Stream Layer"
+                         category="Stream Layer"
+                         id="streamLayerToolbar">
                     <Items>
                         <Button refID="streamLayerShowWindowButton"/>
                     </Items>

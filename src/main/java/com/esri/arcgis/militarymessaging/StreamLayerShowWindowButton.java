@@ -51,8 +51,9 @@ public class StreamLayerShowWindowButton extends Button {
         }
     }
 
-    /* This initializes the button.In this method you set the value of the dockable window id that you have
-  *  provided in the config.xml
+    /**
+     * This initializes the button.In this method you set the value of the dockable window id that you have
+     * provided in the config.xml
      */
     public void init(IApplication app) {
         this.application = app;
