@@ -2,6 +2,10 @@ package com.esri.arcgis.militarymessaging;
 
 import com.esri.arcgis.addins.desktop.DockableWindow;
 import java.awt.Component;
+import java.net.URI;
+import java.net.URISyntaxException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.application.Platform;
 import javafx.embed.swing.JFXPanel;
 import javafx.embed.swing.SwingNode;
@@ -18,6 +22,8 @@ import javax.swing.JTextField;
 public class StreamLayerDockableWindow extends DockableWindow {
 
     public static final String ID = "com.esri.arcgis.militarymessaging.StreamLayerDockableWindow";
+
+    private static final Logger LOGGER = Logger.getLogger(StreamLayerDockableWindow.class.getName());
 
     private JTextField textField_uri = null;
     private Button button_addStreamLayer = null;
@@ -66,7 +72,14 @@ public class StreamLayerDockableWindow extends DockableWindow {
     }
 
     private void button_addStreamLayer_onAction(ActionEvent evt) {
-        System.out.println("TODO add layer for " + textField_uri.getText());
+        try {
+            StreamServiceClient streamServiceClient = new StreamServiceClient(new URI(
+                    textField_uri.getText()
+            ));
+            streamServiceClient.connect();
+        } catch (URISyntaxException ex) {
+            LOGGER.log(Level.WARNING, "Could not connect to stream service at " + textField_uri.getText(), ex);
+        }
     }
 
 }

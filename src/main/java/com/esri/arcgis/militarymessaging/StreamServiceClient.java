@@ -48,6 +48,7 @@ public class StreamServiceClient extends WebSocketClient {
 
     @Override
     public void onMessage(String message) {
+        LOGGER.log(Level.FINE, "received: {0}", message);
         System.out.println("received: " + message);
     }
 
