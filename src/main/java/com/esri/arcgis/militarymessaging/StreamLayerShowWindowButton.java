@@ -1,6 +1,5 @@
 package com.esri.arcgis.militarymessaging;
 
-import com.esri.arcgis.militarymessaging.StreamLayerDockableWindow;
 import com.esri.arcgis.addins.desktop.Button;
 import com.esri.arcgis.framework.IApplication;
 import com.esri.arcgis.framework.IDockableWindow;

@@ -1,13 +1,14 @@
 package com.esri.arcgis.militarymessaging;
 
 import com.esri.arcgis.addins.desktop.DockableWindow;
+import java.awt.Component;
 import javafx.application.Platform;
 import javafx.embed.swing.JFXPanel;
-import javafx.scene.Group;
 import javafx.scene.Scene;
+import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 
-import java.awt.*;
+import javafx.scene.layout.VBox;
 
 /**
  * The class for a simple JavaFX Dockable Window.
@@ -15,9 +16,11 @@ import java.awt.*;
 public class StreamLayerDockableWindow extends DockableWindow {
 
     public static final String ID = "com.esri.arcgis.militarymessaging.StreamLayerDockableWindow";
+    
+    private final TextField textField_uri;
 
     public StreamLayerDockableWindow() {
-
+        textField_uri = new TextField();
     }
 
     @Override
@@ -39,17 +42,12 @@ public class StreamLayerDockableWindow extends DockableWindow {
         fxPanel.setScene(scene);
     }
 
-    private static Scene createScene() {
-        Group root = new Group();
+    private Scene createScene() {
+        VBox root = new VBox();
         Scene scene = new Scene(root, javafx.scene.paint.Color.ALICEBLUE);
-        Text text = new Text();
-
-        text.setX(40);
-        text.setY(100);
-        text.setFont(new javafx.scene.text.Font(25));
-        text.setText("JavaFX Window!");
-
-        root.getChildren().add(text);
+        
+        root.getChildren().add(new Text("Stream service URI"));
+        root.getChildren().add(textField_uri);
 
         return (scene);
     }
