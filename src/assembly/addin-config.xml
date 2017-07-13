@@ -19,14 +19,14 @@
   <AddIn language="JAVA" library="${project.build.finalName}.jar">
     <ArcMap>
       <Commands>
-        <Button caption="Show JavaFX Dockable Window"
-                category="ArcGIS JavaFX Examples"
+        <Button caption="Stream Layer"
+                category="Stream Layer"
                 class="com.esri.arcgis.militarymessaging.StreamLayerShowWindowButton"
-                id="jfxShowDockableWindowButton"
+                id="streamLayerShowWindowButton"
                 image=""
-                message="Shows the JavaFX Dockable Window"
-                tip="Show JavaFX Dockable Window">
-          <Help heading="Show JavaFX Dockable Window Button">Shows the JavaFX Dockable Window</Help>
+                message="Shows the stream layer window"
+                tip="Show Stream Layer Window">
+          <Help heading="Show Stream Layer Window Button">Shows the stream layer window</Help>
         </Button>
       </Commands>
       <DockableWindows>
@@ -38,7 +38,7 @@
       <Toolbars>
         <Toolbar caption="JavaFX Examples Toolbar" id="jfxSamplesToolbar">
           <Items>
-            <Button refID="jfxShowDockableWindowButton"/>
+            <Button refID="streamLayerShowWindowButton"/>
           </Items>
         </Toolbar>
       </Toolbars>
