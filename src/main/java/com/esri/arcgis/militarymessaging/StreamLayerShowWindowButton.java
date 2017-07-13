@@ -5,7 +5,6 @@ import com.esri.arcgis.framework.IApplication;
 import com.esri.arcgis.framework.IDockableWindow;
 import com.esri.arcgis.framework.IDockableWindowManager;
 import com.esri.arcgis.framework.IDockableWindowManagerProxy;
-import com.esri.arcgis.samples.javafx.JavaFXDockableWindow;
 import com.esri.arcgis.system.UID;
 
 /**
@@ -36,7 +35,7 @@ public class StreamLayerShowWindowButton extends Button {
                 UID uid = new UID();
 
                 // id attribute specified in the <DockableWindow> tag
-                uid.setValue(JavaFXDockableWindow.ID);
+                uid.setValue(StreamLayerDockableWindow.ID);
 
                 IDockableWindowManager dwm
                         = new IDockableWindowManagerProxy(application);
@@ -53,7 +52,7 @@ public class StreamLayerShowWindowButton extends Button {
     }
 
     /* This initializes the button.In this method you set the value of the dockable window id that you have
-  *  provided in the config.xml
+     *  provided in the config.xml
      */
     public void init(IApplication app) {
         this.application = app;

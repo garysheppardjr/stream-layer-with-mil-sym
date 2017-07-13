@@ -30,13 +30,15 @@
                 </Button>
             </Commands>
             <DockableWindows>
-                <DockableWindow caption="Sample JavaFX Dockable Window"
-                                category="ArcGIS JavaFX Samples"
-                                class="com.esri.arcgis.samples.javafx.JavaFXDockableWindow"
-                                id="com.esri.arcgis.samples.javafx.jfxdockablewindow"/>
+                <DockableWindow caption="Stream Layer"
+                                category="Stream Layer"
+                                class="com.esri.arcgis.militarymessaging.StreamLayerDockableWindow"
+                                id="com.esri.arcgis.militarymessaging.StreamLayerDockableWindow"/>
             </DockableWindows>
             <Toolbars>
-                <Toolbar caption="JavaFX Examples Toolbar" id="jfxSamplesToolbar">
+                <Toolbar caption="Stream Layer"
+                         category="Stream Layer"
+                         id="streamLayerToolbar">
                     <Items>
                         <Button refID="streamLayerShowWindowButton"/>
                     </Items>
